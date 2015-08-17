@@ -1,0 +1,9 @@
+<h1> Item List</h1>
+<hr>
+<% @items.each do |item| %>
+    <h3>Item Content: <%= item.content %></h3><br>
+    <h3>Item Creator: <%= item.user.email %></h3><br>
+    itemler gelecek
+    <hr>
+
+<% end %>

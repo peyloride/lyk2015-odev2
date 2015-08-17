@@ -1,0 +1,15 @@
+<h1> Category List</h1>
+<p> <%= link_to 'New Category', new_category_path %></p>
+<hr>
+<% @categories.each do |category| %>
+    <h3>Category: <%= category.name %></h3><br>
+    <p>Creator: <%= category.user.email %></p><br>
+    <p>Item list: <%= category.items.map {|i| i.content}.join(', ') %></p>
+    <%= link_to 'Show', category_path(category) %>
+    <%= link_to 'New Item', new_category_item_path(category) %>
+    <%= link_to 'Edit', edit_category_path(category) %>
+    <%= link_to 'Destroy', category_path(category), method: :delete %>
+    <hr>
+<% end %>
+
+<%= paginate @categories %>
